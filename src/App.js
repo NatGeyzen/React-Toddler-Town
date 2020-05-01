@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
+import GameHomePage from './components/GameHomePage/GameHomePage';
+import MemoryGamePage from './components/MemoryGamePage/MemoryGamePage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const [ startGame, setStartGame ] = useState(true);
+	const [ goToGame, setGoToGame ] = useState(false);
+
+    return (
+        <div className="App">
+			{startGame ? <GameHomePage title="Memory Game" goToGame={() => {
+				setStartGame(false);
+				setGoToGame(true);
+			}}>
+				<div className="MG-filter">
+					<p>Board Size</p>	
+					<select id="board-size">
+  						<option value="4 x 3">4 x 3</option>
+					</select>
+				</div>
+				<div className="MG-filter">
+					<p>Theme</p>	
+					<select id="theme">
+  						<option value="default">default</option>
+					</select>
+				</div>
+			</GameHomePage> : null }
+			{goToGame ? <MemoryGamePage /> : null }
+        </div>
+    );
 }
 
 export default App;
