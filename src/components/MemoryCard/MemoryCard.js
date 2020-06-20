@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './MemoryCard.css';
 
@@ -11,48 +11,41 @@ import sheep from '../../assets/images/basic/sheep.png';
 
 const MemoryCard = props => {
 
+    const { number } = props;
 
-    const { id } = props;
-
-    const [ cardClass, setCardClass ] = useState("Flipper");
     let cardImg;
     let cardAlt;
     let cardColor;
 
-    if ( id === 1) {
+    if ( number === 1) {
         cardImg = dog;
         cardAlt = 'dog';
         cardColor = 'lightblue';
-    } else if ( id === 2) {
+    } else if ( number === 2) {
         cardImg = cat;
         cardAlt = 'cat';
         cardColor = 'lightgreen';
-    } else if ( id === 3 ) {
+    } else if ( number === 3 ) {
         cardImg = cow;
         cardAlt = 'cow';
         cardColor = 'yellow';
-    } else if ( id === 4 ) {
+    } else if ( number === 4 ) {
         cardImg = pig;
         cardAlt = 'pig';
         cardColor = 'purple';
-    } else if ( id === 5 ) {
+    } else if ( number === 5 ) {
         cardImg = chicken;
         cardAlt = 'chicken';
         cardColor = 'red';
-    } else if ( id === 6 ) {
+    } else if ( number === 6 ) {
         cardImg = sheep;
         cardAlt = 'sheep';
         cardColor = 'orange';
     } 
 
-    const clickHandler = (id) => {
-        setCardClass("FlipperClicked");
-        props.count(id);
-    }
-
     return (
-        <div className="FlipContainer" onClick={() => clickHandler(props.id)}>
-            <div className={cardClass}>
+        <div className="FlipContainer" onClick={() => props.cardHandler(props.id, props.number)}>
+            <div id={props.id} className="Flipper" >
                 <div className="CardFront">
                     <span className="CardTheme">ANIMALS</span>
                 </div>
