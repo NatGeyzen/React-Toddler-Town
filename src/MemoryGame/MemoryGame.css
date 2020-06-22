@@ -6,14 +6,42 @@
   
 .MG-filter > p {
     width: 40%;
-    font-size: 16px;
+    font-size: 1.1em;
     font-variant: small-caps;
     text-align: left;
-  
+    margin-right: 2em;
   }
   
 #board-size, #theme {
     height: 30px;  
     width: 100px;
     padding: 5px;
+    border: none;
+    border-bottom: 1px solid darkslategray;
+    font-size: 0.9em;
+    font-weight: bold;
+    font-style: italic;
+    background-color: transparent;
+    margin-top: -10px;
+}
+
+@media (max-height: 568px) {
+  .MG-filter > p {
+    font-size: 1em;
+  }
+}
+
+@media (min-height: 768px) {
+  .MG-filter > p {
+    font-size: 1.25em;
+  }
+}
+
+@media (min-height: 768px) {
+  .MG-filter > p {
+    font-size: 1.5em;
+  }
+  #board-size, #theme {
+    font-size: 1.1em;
+  }
 }

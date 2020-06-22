@@ -9,7 +9,7 @@ const GameHomePage = props => {
             <button 
                 className="StartGameButton"
                 onClick={props.goToGame}
-            >Start Game</button>
+            >START GAME</button>
         </div>
     )
 }

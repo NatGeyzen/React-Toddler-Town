@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './MemoryGame.css';
 import GameHomePage from './pages/GameHomePage/GameHomePage';
 import MemoryGamePage from './pages/MemoryGamePage/MemoryGamePage';
 import MemoryGameOverPage from './pages/MemoryGameOverPage/MemoryGameOverPage';
@@ -27,20 +28,20 @@ const MemoryGame = () => {
     /* DYNAMICALLY RENDERED CONTENT
 	---------------------------------------------------------------------------------------------------- */
     const game_home_page = (
-        <GameHomePage title="Memory Game" goToGame={startGameHandler}>
-                <div className="MG-filter">
-                    <p>Board Size</p>	
-                    <select id="board-size">
-                        <option value="4 x 3">4 x 3</option>
-                    </select>
-                </div>
-                <div className="MG-filter">
-                    <p>Theme</p>	
-                    <select id="theme">
-                        <option value="default">default</option>
-                    </select>
-                </div>
-            </GameHomePage>    
+        <GameHomePage title="Match from Memory" goToGame={startGameHandler}>
+            <div className="MG-filter">
+                <p>BOARD SIZE</p>	
+                <select id="board-size">
+                    <option value="4 x 3">4 x 3</option>
+                </select>
+            </div>
+            <div className="MG-filter">
+                <p>THEME</p>	
+                <select id="theme">
+                    <option value="default">default</option>
+                </select>
+            </div>
+        </GameHomePage>    
     );
 
     const play_game_page = (

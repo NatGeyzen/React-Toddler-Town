@@ -20,11 +20,11 @@ const MemoryCard = props => {
     if ( number === 1) {
         cardImg = dog;
         cardAlt = 'dog';
-        cardColor = 'lightblue';
+        cardColor = 'dodgerblue';
     } else if ( number === 2) {
         cardImg = cat;
         cardAlt = 'cat';
-        cardColor = 'lightgreen';
+        cardColor = 'limegreen';
     } else if ( number === 3 ) {
         cardImg = cow;
         cardAlt = 'cow';

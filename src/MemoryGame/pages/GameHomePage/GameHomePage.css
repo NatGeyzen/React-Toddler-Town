@@ -2,6 +2,13 @@
     height: 100vh;
     box-sizing: border-box;
     padding-top: 5vh;
+    font-family: 'Gamja Flower', cursive;
+}
+
+.GameHomePage > h1 {
+    font-size: 3em;
+    margin: 5vh 20vw;
+    line-height: 100%;
 }
 
 .GameFilterContainer {
@@ -10,13 +17,71 @@
     width: 300px;
     max-width: 70%;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px 5px 30px;
+    font-family: 'Do Hyeon', sans-serif;
 }
 .StartGameButton {
     position: absolute;
-    bottom: 15vh;
+    bottom: 10vh;
     transform: translateX(-50%);
+    height: 40px;
+    width: 175px;
+    border: 2px solid rgb(3, 45, 180);
+    border-radius: 30px;
+    font-size: 130%;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+    font-family: 'Gamja Flower', cursive;
+    background-color:rgb(3, 45, 180);
+    color: white;
+    font-weight: bold;
+    box-shadow: 1px 1px 1px rgb(0, 17, 71), 2px 2px 2px rgb(0, 17, 71), -1px -1px 1px rgb(4, 56, 224);
+}
+
+
+@media (min-width: 400px) {
+    .GameHomePage > h1 {
+        font-size: 3.75em;
+        margin: 10vh 17.5vw;
+    }
+    .StartGameButton {
+        bottom: 15vh;
+    }
+}
+
+@media (max-height: 568px) {
+    .GameHomePage > h1 {
+        font-size: 2.8em;
+        margin: 10vh 17.5vw;
+    }
+    .StartGameButton {
+        bottom: 12.5vh;
+    }
+}
+@media (min-width: 767px) {
+    .GameHomePage > h1 {
+        font-size: 6em;
+        margin: 5vh 20vw;
+        line-height: 100%;
+    }
+    /* .GameFilterContainer {
+        top: 60%;
+    } */
+    .StartGameButton {
+        height: 55px;
+        width: 200px;
+        font-size: 150%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .GameHomePage > h1 {
+        margin: 7.5vh 20vw;
+    }
+    .StartGameButton {
+        bottom: 12.5vh;
+    }
 }
