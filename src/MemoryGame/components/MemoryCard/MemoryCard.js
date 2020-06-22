@@ -2,12 +2,12 @@ import React from 'react';
 
 import './MemoryCard.css';
 
-import dog from '../../assets/images/basic/dog.png';
-import cat from '../../assets/images/basic/cat.png';
-import cow from '../../assets/images/basic/cow.png';
-import pig from '../../assets/images/basic/pig.png';
-import chicken from '../../assets/images/basic/chicken.png';
-import sheep from '../../assets/images/basic/sheep.png';
+import dog from '../../../assets/images/basic/dog.png';
+import cat from '../../../assets/images/basic/cat.png';
+import cow from '../../../assets/images/basic/cow.png';
+import pig from '../../../assets/images/basic/pig.png';
+import chicken from '../../../assets/images/basic/chicken.png';
+import sheep from '../../../assets/images/basic/sheep.png';
 
 const MemoryCard = props => {
 
@@ -45,7 +45,7 @@ const MemoryCard = props => {
 
     return (
         <div className="FlipContainer" onClick={() => props.cardHandler(props.id, props.number)}>
-            <div id={props.id} className="Flipper" >
+            <div id={props.id} className={props.className} >
                 <div className="CardFront">
                     <span className="CardTheme">ANIMALS</span>
                 </div>

@@ -1,0 +1,19 @@
+.MG-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.MG-filter > p {
+    width: 40%;
+    font-size: 16px;
+    font-variant: small-caps;
+    text-align: left;
+  
+  }
+  
+#board-size, #theme {
+    height: 30px;  
+    width: 100px;
+    padding: 5px;
+}

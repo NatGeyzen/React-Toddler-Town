@@ -1,7 +1,11 @@
-import React, { useState, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import customId from 'custom-id';
+
 import './MemoryGamePage.css';
 import MemoryCard from '../../components/MemoryCard/MemoryCard';
+
+import { connect } from 'react-redux';
+import { incrementRound, incrementMatch, storeFoundId, storeFoundIds } from '../../../store/actions';
 
 /* ----------------------------------------------------------------------------------------------------
     GLOBAL VARIABLES
@@ -63,13 +67,9 @@ const createGrid = () => {
 
 createGrid();
 
-const MemoryGamePage = () => {
+const MemoryGamePage = (props) => {
 
-    const [ completed, set_completed ] = useState(false);
-    
     let card_count = 0;
-    let round_count = 0;
-    let matches_found = 0;
     let clicked_cards_ids = [];
     let clicked_cards_numbers = [];
 
@@ -89,7 +89,6 @@ const MemoryGamePage = () => {
         }
         if (card_count === 2) {     
             if (clicked_cards_numbers[0] !== clicked_cards_numbers[1]) {
-                console.log('no match');
                 setTimeout(() => { 
                     clicked_cards_ids.forEach(id => {
                         if (id !== null) {
@@ -97,58 +96,37 @@ const MemoryGamePage = () => {
                             document.getElementById(id).classList.add("Flipper");
                         }
                     });
-                }, 2000);
+                }, 1000);
                 setTimeout(() => {
-                    ++round_count;
-                    console.log(`round count: ${round_count}`);
                     resetRoundValues();
-                }, 3000)  
+                    props.incrementRound(props.round_count);
+                }, 1500)  
             } else if (clicked_cards_numbers[0] === clicked_cards_numbers[1]) {
-                console.log('match');
-                
                 setTimeout(() => {
+                    clicked_cards_ids.forEach(id => {
+                        props.storeFoundId(id);
+                         props.storeFoundIds(props.matches_found, id); 
+                    });
                     resetRoundValues();
-                    ++matches_found;
-                    ++round_count;
-                    console.log(`round count: ${round_count}`);
-                    console.log(`matches found: ${matches_found}`);
-                    if (merged_sequence.length === 12 && matches_found === 6) {
-                        set_completed(true);
+                    props.incrementMatch(props.match_count);
+                    props.incrementRound(props.round_count);
+
+                    if (merged_sequence.length === 12 && props.match_count === 5) {
+                        props.endGame();
                     }
                 }, 1000)
-                
             }
         }
 
         if (!(card_count === 0 || card_count === 1 || card_count === 2)) {
             clicked_cards_ids.push(null);
             clicked_cards_numbers.push(null);
-        }
+        }  
 
-        console.log(`card count: ${card_count}`);
-        
-    }   
-
-
-    // // ------------------------------
-    // // KEEP TRACK OF CARD COUNT
-    // // ------------------------------
-
-   
-    
-    
-    
+    };   
 
     return (
         <Fragment>
-            {/* <div className="GameInfo">
-                <div>rounds played: 
-                    <span> {round_count}</span>
-                    </div>
-                <div>matches found: 
-                    <span> {matches_found}</span>
-                </div>
-            </div> */}
             <div className="MemoryGameBoard">    
                 {grid.map(row => 
                     <div 
@@ -161,20 +139,40 @@ const MemoryGamePage = () => {
                                 <MemoryCard 
                                     id={cell[0]}
                                     number={cell[1]}
+                                    className={
+                                        props.matches_found.length === 0 ? "Flipper" :
+                                            props.matches_found.includes(cell[0]) ? "FlipperClicked" : "Flipper"
+                                    }
                                     cardHandler={cardHandler}
-                                    completed={completed}
                                 />                               
                             </div>
                         )}
                     </div>
                 )}  
-            </div>
+            </div> 
             <footer>
                 <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-            </footer>    
+            </footer>
         </Fragment>
-        
     )
-}
+};
 
-export default MemoryGamePage;
+const mapStateToProps = state => {
+    return {
+        round_count: state.roundCount,
+        match_count: state.matchCount,
+        id: state.id,
+        matches_found: state.matchesFound
+    }
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        incrementRound: (count) => dispatch(incrementRound(count)),
+        incrementMatch: (count) => dispatch(incrementMatch(count)),
+        storeFoundId: (id) => dispatch(storeFoundId(id)),
+        storeFoundIds: (matchesFound, id) => dispatch(storeFoundIds(matchesFound, id))
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemoryGamePage);
