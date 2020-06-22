@@ -1,6 +1,6 @@
 .GameOverScreen {
     height: 45vh;
-    width: 50vw;
+    width: 65vw;
     position: absolute;
     top: 25%;
     left: 50%;
@@ -11,19 +11,35 @@
 }
 
 .GameOverText {
-    font-size: 200%;
-    margin-bottom: 0.5em;
+    font-size: 175%;
+    margin-bottom: 1.5em;
+}
+.GameOverText:last-child {
+    font-size: 125%;
+    line-height: 175%;
 }
 
 .GameOverScreen > button {
-    width: 180px;
-    height: 45px;
-    border: 2px solid rgb(71, 61, 138);
-    border-radius: 30px;
-    color: rgb(52, 39, 134);
-    font-size: 125%;
-    font-weight: bold;
-    letter-spacing: 1px;
-    font-variant: small-caps;
-    margin: 0 auto;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (min-width: 768px) {
+    .GameOverText {
+        font-size: 250%;
+    }
+    .GameOverText:last-child {
+        font-size: 175%;
+    }
+}
+
+@media (min-width: 1000px) {
+    .GameOverText {
+        font-size: 300%;
+    }
+    .GameOverText:last-child {
+        font-size: 225%;
+    }
 }

@@ -1,12 +1,12 @@
 .FlipContainer {
-    height: 125px;
-    width: 125px;
+    height: 90px;
+    width: 90px;
     perspective: 1000px;
 }
 
 .Flipper{
     position: relative;
-    height: 125px;
+    height: 90px;
     transform: rotateY(180deg);
     transition: transform 0.8s;
     transform-style: preserve-3d;
@@ -21,7 +21,7 @@
 .CardBack, .CardFront {
     position: absolute;
     width: 100%;
-    height: 125px;
+    height: 90px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -42,10 +42,10 @@
 }
 
 .CardTheme {
-    font-size: 275%;
+    font-size: 150%;
     letter-spacing: 3px;
     font-weight: bold;
-    font-family: 'Indie Flower', cursive;
+    font-family: 'Gamja Flower', cursive;
 }
 
 .CardBack > h1 {
@@ -57,6 +57,35 @@
 }
 
 .CardImage {
-    height: 75px;
+    height: 50px;
     width: auto;
+}
+
+@media (max-height: 568px) {
+    .FlipContainer {
+        height: 80px;
+        width: 80px;
+    }
+    .Flipper{
+        height: 80px;
+    }
+    .CardBack, .CardFront {
+        height: 80px;
+    }
+}
+
+@media (min-width: 768px) {
+    .FlipContainer {
+        height: 150px;
+        width: 150px;
+    }
+    .Flipper, .CardBack, .CardFront {
+        height: 150px;
+    }
+    .CardTheme {
+        font-size: 300%;
+    }
+    .CardImage {
+        height: 75px;
+    }
 }
