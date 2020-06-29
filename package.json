@@ -1,5 +1,6 @@
 {
   "name": "games-project",
+  "homepage": "http://nat.geyzen.tech/memory-game/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

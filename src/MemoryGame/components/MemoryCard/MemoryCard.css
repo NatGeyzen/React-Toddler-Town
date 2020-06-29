@@ -76,11 +76,11 @@
 
 @media (min-width: 768px) {
     .FlipContainer {
-        height: 150px;
-        width: 150px;
+        height: 125px;
+        width: 125px;
     }
     .Flipper, .CardBack, .CardFront {
-        height: 150px;
+        height: 125px;
     }
     .CardTheme {
         font-size: 300%;

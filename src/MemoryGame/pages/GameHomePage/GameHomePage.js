@@ -11,6 +11,7 @@ const GameHomePage = props => {
                 className="StartGameButton"
                 onClick={props.goToGame}
             >START GAME</button>
+            <footer className="copyright">&copy; Nat Geyzen 2020</footer>
         </div>
     )
 }

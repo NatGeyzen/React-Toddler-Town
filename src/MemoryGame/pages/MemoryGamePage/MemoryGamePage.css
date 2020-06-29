@@ -52,6 +52,25 @@ footer > div > a {
     font-weight: bold;
 }
 
+.copyright-attribute {
+    position: absolute;
+    bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Do Hyeon', sans-serif;
+    color: rgb(104, 102, 102);
+}
+
+.copyright-attribute > div {
+    font-size: 13px;
+}
+
+.copyright-attribute > div > a {
+    color: rgb(104, 102, 102);
+    text-decoration: underline;
+}
+
+
 @media (min-width: 768px) {
     .MemoryGameBoard {
         flex-direction: column;
@@ -67,7 +86,7 @@ footer > div > a {
 @media (min-width: 1000px) {
     .MemoryGameBoard {
         height: 80vh;
-        width: 60vw;
+        width: 65vw;
     }
     .MemoryRow {
         flex-direction: row;

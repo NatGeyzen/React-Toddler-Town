@@ -25,6 +25,15 @@
     margin-top: -10px;
 }
 
+footer.copyright {
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Do Hyeon', sans-serif;
+  color: rgb(104, 102, 102);
+}
+
 @media (max-height: 568px) {
   .MG-filter > p {
     font-size: 1em;

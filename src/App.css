@@ -32,9 +32,9 @@
 
 @media (min-width: 1000px) {
   .StartGameButton, .GameOverScreen > button {
-      height: 60px;
-      width: 250px;
-      font-size: 200%;
+      height: 50px;
+      width: 200px;
+      font-size: 175%;
       border-radius: 50px;
   }
 }
