@@ -1,73 +1,90 @@
-form {
-    height: 100vh;
-    width: 100vw;
+form, .user-authentication {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
 }
-.user-information, .submit-user-information {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.user-authentication {
+    height: 100vh;
+    width: 100vw;
+}
+form {
+    height: 35%;
+    width: 70%;
+    justify-content: space-between;
 }
 .user-input, .submit-user-information {
     font-family: 'Do Hyeon', sans-serif;
-}
-.user-information {
-    height: 40vh;
-    width: 60vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    top: 25%;
+    width: 100%;
+    box-sizing: border-box;
 }
 .user-input {
-    margin: 1em auto; 
-    height: 1.75em;
-    width: 95%;
-    border-radius: 10px;
-    border: 1px solid rgb(44, 43, 43);
+    margin: 0 auto; 
+    border: none;
+    border: 1px solid rgb(99, 98, 98);
     box-shadow: 1px 1px 3px rgb(194, 197, 197);
-    text-align: center;
+    border-radius: 30px;
     font-size: 0.9em;
-    color: rgb(158, 157, 157);
+    padding-left: 1.5em;
+    background-color: rgba(189, 187, 187, 0.2);
+    height: 30px;
 }
+
 .user-input:focus {
     outline: none;
+    background-color: rgba(80, 96, 129, 0.15); 
+    border: 1px solid rgb(12, 11, 11); 
 }
+
+.input-message {
+    margin-bottom: 1.5em;
+}
+
+.input-message.task-ongoing {
+    color: darkslateblue;
+    font-style: italic;   
+    font-weight: bold;
+}
+
+.input-message.error {
+    color: darkred;
+    font-weight: bold;
+}
+
+#password-input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    /* width: 70%; */
+}
+
 .submit-user-information {
-    bottom: 30vh;
-    height: 1.8em;
-    width: 7.5em;
     border-radius: 30px;
     font-size: 1.1em;
     cursor: pointer;
-}
-
-@media (min-width: 400px) {
-    .user-input, .submit-user-information {
-        height: 2em;
-    }
-}
-@media (min-width: 768px) and (max-height: 800px) {
-    .submit-user-information {
-        bottom: 20vh;
-    }
+    background-color: rgb(2, 100, 100); 
+    color: #eee; 
+    height: 35px;
+    border: none;
+    margin-top: 1em;
 }
 @media (min-width: 768px) {
     .user-input, .submit-user-information {
-        height: 2.25em;
+        width: 60%;
     }
     .user-input {
-        width: 20em;
-        font-size: 1.25em;
+        font-size: 1.1em;
+        height: 35px;
     }
     .submit-user-information {
-        width: 10em;
         font-size: 1.5em;
+        height: 40px;
     }
 }
 @media (min-width: 1000px) {
-    .user-input {
-        margin: 1.5em auto; 
-    }    
+    .user-input, .submit-user-information, #password-input {
+        width: 350px;
+    } 
 }
